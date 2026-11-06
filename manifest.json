@@ -1,0 +1,8 @@
+{
+  "name": "ZvonkLauncher",
+  "short_name": "Zvonk",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00ff88",
+  "start_url": "https://zvonk210.github.io/ZvonkLauncher/"
+}
