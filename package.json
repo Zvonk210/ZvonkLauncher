@@ -1,0 +1,9 @@
+{
+  "name": "zvonklauncher",
+  "version": "1.0.0",
+  "description": "ZvonkLauncher - Launcher de Minecraft real",
+  "main": "index.html",
+  "scripts": {
+    "start": "electron ."
+  }
+}
