@@ -7,24 +7,21 @@
 <style>
 body { background: #000000; color: white; text-align: center; font-family: sans-serif; }
 h1 { color: white; font-size: 40px; }
-button { background: white; color: black; padding: 15px 30px; font-size: 18px; border: none; border-radius: 10px; margin: 5px; }
+button { background: white; color: black; padding: 15px 30px; font-size: 18px; border: none; border-radius: 10px; margin: 10px; width: 280px; }
+#installBtn { background: #00ff88; }
 </style>
 </head>
 <body>
 <h1>ZK LAUNCHER</h1>
 <img src="icon.png" width="250">
-<p>By Zvonk210 - Minecraft 1.21</p>
-<h3>Versión: Java 1.21</h3>
-<p>PC: Descarga el .exe | CEL: Instala la App</p>
-<a href="icon.png" download>
-<button>DESCARGAR LOGO</button>
-</a>
-<br><br>
+<p>By Zvonk210 - 【entity-Minecraft¦canonical_name=Minecraft】 1.21</p>
+
+<button id="installBtn">1 - INSTALAR EN CELULAR</button>
+<br>
 <a href="https://github.com/Zvonk210/ZvonkLauncher/actions">
-<button>DESCARGAR ZK LAUNCHER PARA PC</button>
+<button>2 - DESCARGAR PARA PC</button>
 </a>
-<br><br>
-<button onclick="alert('¡Pronto podrás jugar!')">JUGAR</button>
+
 <br><br>
 <a href="https://github.com/Zvonk210/ZvonkLauncher" style="color:white">Mi Repo Oficial</a>
 
@@ -32,6 +29,21 @@ button { background: white; color: black; padding: 15px 30px; font-size: 18px; b
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  } else {
+    alert('Dale a los 3 puntitos de Brave > Instalar y crear acceso directo');
+  }
+});
 </script>
 </body>
 </html>
